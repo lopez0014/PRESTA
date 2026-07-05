@@ -1,6 +1,11 @@
 let usuarioIdActual = null;
 let usuarioTelefonoActual = null;
 
+// ==========================================
+// CONFIGURACIÓN MAESTRA FIJA (NÚMERO ASIGNADO)
+// ==========================================
+const TELEFONO_WHATSAPP_NEGOCIO = "5127508621"; // 🔥 FIJADO DE UNA VEZ POR TODAS
+
 // DETECTOR DE 4 CLICS (PANEL OCULTO DIGITAL)
 let contadorClicks = 0;
 let ultimoClickTiempo = 0;
@@ -152,6 +157,43 @@ function loguearAdmin() {
     cargarPrestamosGlobales();
 }
 
+// VALIDADOR PARA DESENCRIPTACIÓN LOCAL DE SEGURIDAD
+function encriptarDato(texto) {
+    try {
+        const claveSecreta = "BunkerFintechSecureKey2026!";
+        const iv = CryptoJS.lib.WordArray.random(16);
+        const cifrado = CryptoJS.AES.encrypt(texto, CryptoJS.enc.Utf8.parse(claveSecreta), {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        });
+        return {
+            data: {
+                textoCifrado: cifrado.toString(),
+                vectorIB: iv.toString()
+            },
+            error: null
+        };
+    } catch (e) {
+        return { data: null, error: e };
+    }
+}
+
+function desencriptarDato(textoCifrado, vectorIB) {
+    try {
+        const claveSecreta = "BunkerFintechSecureKey2026!";
+        const iv = CryptoJS.enc.Hex.parse(vectorIB);
+        const descifrado = CryptoJS.AES.decrypt(textoCifrado, CryptoJS.enc.Utf8.parse(claveSecreta), {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        });
+        return descifrado.toString(CryptoJS.enc.Utf8);
+    } catch (e) {
+        return "Fallo de descifrado";
+    }
+}
+
 function loguearUsuario(nombre) {
     document.getElementById('main-container').style.maxWidth = "450px";
     const nameSpans = document.getElementsByClassName('user-name-span');
@@ -183,7 +225,7 @@ function cerrarSesion() {
     if(document.getElementById('login-password')) document.getElementById('login-password').value = '';
 }
 
-// 3. ENVIAR PRÉSTAMO Y DISPARAR ENLACE INVISIBLE NATIVO A WHATSAPP
+// 3. ENVIAR PRÉSTAMO Y DISPARAR ENLACE INVISIBLE NATIVO A WHATSAPP CON NÚMERO FIJO
 async function solicitarPrestamo() {
     const monto = document.getElementById('l-monto').value;
     const dni = document.getElementById('l-dni').value;
@@ -216,7 +258,7 @@ async function solicitarPrestamo() {
     const codigoUnico = Math.floor(100 + Math.random() * 900);
 
     try {
-        const { data: cipherData, error: cipherError } = await encriptarDato(dni);
+        const { data: cipherData, error: cipherError } = encriptarDato(dni);
         let textCifrado = dni;
         let vecIB = "0000000000000000";
         if (!cipherError && cipherData) {
@@ -242,14 +284,10 @@ async function solicitarPrestamo() {
             return;
         }
 
-        // Jalamos el teléfono del administrador dinámicamente de Supabase (el del perfil con rol admin)
-        const { data: adminData } = await supabase.from('perfiles').select('telefono').eq('rol', 'admin').limit(1);
-        const telefonoDestino = (adminData && adminData.length > 0) ? adminData[0].telefono : "5127508621"; 
-
-        // Mensaje inteligente corporativo oficial bajo la marca Credi Honduras
+        // Mensaje inteligente corporativo oficial bajo la marca Credi Honduras apuntando fijo al 5127508621
         const textoMensaje = `Hola, solicité un préstamo de L. ${montoNumerico}.\nMi código de validación es el #${codigoUnico}.\n\nQuedo listo para enviarle la documentación de identidad a Credi Honduras.`;
         const textoEncriptadoURL = encodeURIComponent(textoMensaje);
-        const urlWhatsApp = `https://wa.me/${telefonoDestino}?text=${textoEncriptadoURL}`;
+        const urlWhatsApp = `https://wa.me/${TELEFONO_WHATSAPP_NEGOCIO}?text=${textoEncriptadoURL}`;
 
         alert(`¡Solicitud registrada con éxito bajo el código #${codigoUnico}!\n\nPresiona Aceptar para transferir los datos y abrir WhatsApp.`);
 
@@ -258,7 +296,7 @@ async function solicitarPrestamo() {
         document.getElementById('l-banco').value = '';
         document.getElementById('l-cuenta').value = '';
 
-        // 🔥 ENLACE INVISIBLE NATIVO: Simula una acción real del usuario en el DOM para forzar la apertura sin importar los filtros de Chrome
+        // Enlace nativo invisible en memoria para romper el bloqueo de pop-ups en Chrome
         const enlaceInvisible = document.createElement('a');
         enlaceInvisible.href = urlWhatsApp;
         enlaceInvisible.target = '_blank';
@@ -268,7 +306,7 @@ async function solicitarPrestamo() {
         enlaceInvisible.click();
         document.body.removeChild(enlaceInvisible);
 
-        // RESPALDO DE REDIRECCIÓN ABSOLUTA
+        // Respaldo inmediato de redirección
         setTimeout(() => {
             window.location.href = urlWhatsApp;
         }, 300);
