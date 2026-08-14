@@ -1,433 +1,177 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import {
-  Wallet,
-  PiggyBank,
-  ShieldCheck,
-  TrendingUp,
-  Users,
-  Landmark,
-  Phone,
-  MapPin,
-  Mail,
-  ChevronRight,
-  Menu,
-  X,
-} from "lucide-react";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credi Honduras - Portal Corporativo VIP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen relative">
 
-import heroImg from "../assets/hero-credi.jpg";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Credi Honduras — Tu Socio Financiero de Confianza" },
-      { name: "description", content: "Credi Honduras ofrece soluciones financieras accesibles: préstamos personales, microcréditos, ahorro y más. Confianza y compromiso desde 1998." },
-    ],
-  }),
-  component: Index,
-});
-
-function Index() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-background">
-      {/* Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-2">
-            <Landmark className="h-7 w-7 text-primary" />
-            <span className="font-display text-xl font-bold tracking-tight text-foreground">
-              Credi Honduras
-            </span>
-          </Link>
-
-          <nav className="hidden items-center gap-8 md:flex">
-            {[
-              { label: "Inicio", to: "/" },
-              { label: "Servicios", to: "/#servicios" },
-              { label: "Nosotros", to: "/#nosotros" },
-              { label: "Contacto", to: "/#contacto" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.to}
-                className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden md:block">
-            <a
-              href="#contacto"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Solicitar préstamo
-            </a>
-          </div>
-
-          <button
-            className="md:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? (
-              <X className="h-6 w-6 text-foreground" />
-            ) : (
-              <Menu className="h-6 w-6 text-foreground" />
-            )}
-          </button>
-        </div>
-
-        {mobileOpen && (
-          <div className="border-t border-border bg-background px-6 py-4 md:hidden">
-            <nav className="flex flex-col gap-4">
-              {[
-                { label: "Inicio", to: "/" },
-                { label: "Servicios", to: "#servicios" },
-                { label: "Nosotros", to: "#nosotros" },
-                { label: "Contacto", to: "#contacto" },
-              ].map((item) => (
-                <a
-                  key={item.label}
-                  href={item.to}
-                  className="text-base font-medium text-foreground/80 transition-colors hover:text-primary"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <a
-                href="#contacto"
-                className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
-                onClick={() => setMobileOpen(false)}
-              >
-                Solicitar préstamo
-              </a>
-            </nav>
-          </div>
-        )}
-      </header>
-
-      {/* Hero */}
-      <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="Panorama urbano de Honduras"
-            className="h-full w-full object-cover"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-primary/70" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary-foreground/80">
-            Desde 1998 · Honduras
-          </p>
-          <h1 className="font-display text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            Tu socio financiero
-            <br />
-            de confianza
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/85 sm:text-xl">
-            En Credi Honduras creemos que el acceso al crédito es un derecho.
-            Ofrecemos soluciones financieras accesibles, transparentes y diseñadas
-            para impulsar tus proyectos.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#servicios"
-              className="inline-flex items-center justify-center rounded-md bg-primary-foreground px-6 py-3 text-base font-semibold text-primary transition-colors hover:bg-primary-foreground/90"
-            >
-              Conoce nuestros servicios
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </a>
-            <a
-              href="#contacto"
-              className="inline-flex items-center justify-center rounded-md border-2 border-primary-foreground/30 px-6 py-3 text-base font-semibold text-primary-foreground backdrop-blur-sm transition-colors hover:bg-primary-foreground/10"
-            >
-              Contáctanos
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="bg-primary py-16">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 md:grid-cols-4">
-          {[
-            { value: "26+", label: "Años de experiencia" },
-            { value: "50K+", label: "Clientes satisfechos" },
-            { value: "L. 2B+", label: "En préstamos otorgados" },
-            { value: "18", label: "Sucursales a nivel nacional" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-display text-3xl font-bold text-primary-foreground sm:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-sm text-primary-foreground/80">{stat.label}</p>
+    <div class="max-w-7xl mx-auto p-4 md:p-8 space-y-10">
+        
+        <header class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center shadow-2xl gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="bg-blue-600 w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-handshake-angle text-3xl md:text-4xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-black text-white tracking-tighter">Credi Honduras</h1>
+                    <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">Plataforma Financiera VIP</p>
+                </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Servicios */}
-      <section id="servicios" className="py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 text-center">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-secondary">
-              Nuestros servicios
-            </p>
-            <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
-              Soluciones para cada necesidad
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex bg-emerald-900/40 border border-emerald-500/30 px-4 py-2 rounded-full items-center space-x-2 text-emerald-400 text-xs font-semibold">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span>Sistema Conectado</span>
+                </div>
+
+                <button onclick="toggleModal(true)" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 shadow-lg hover:shadow-blue-500/20 transition-all">
+                    <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+                </button>
+            </div>
+        </header>
+
+        <main class="space-y-8">
+            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
+                <i class="fa-solid fa-id-card text-blue-500"></i> Resumen de Cuenta VIP
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Diseñamos productos financieros pensados en ti, con procesos ágiles,
-              tasas competitivas y un trato cercano.
-            </p>
-          </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                icon: Wallet,
-                title: "Préstamos Personales",
-                description:
-                  "Obtén liquidez inmediata para cualquier proyecto o necesidad. Aprobación en 24 horas y pagos flexibles.",
-              },
-              {
-                icon: PiggyBank,
-                title: "Cuentas de Ahorro",
-                description:
-                  "Haz crecer tu dinero con nuestras cuentas de ahorro con tasas de interés competitivas y sin comisiones ocultas.",
-              },
-              {
-                icon: TrendingUp,
-                title: "Microcréditos",
-                description:
-                  "Impulsa tu negocio o emprendimiento con microcréditos accesibles diseñados para la economía local.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Seguros Financieros",
-                description:
-                  "Protege tu inversión y a tu familia con nuestros planes de seguros asociados a tus productos.",
-              },
-              {
-                icon: Landmark,
-                title: "Crédito Hipotecario",
-                description:
-                  "Cumple el sueño de tu hogar propio con financiamiento a largo plazo y cuotas que se adaptan a tu presupuesto.",
-              },
-              {
-                icon: Users,
-                title: "Crédito Grupal",
-                description:
-                  "Fortalece tu comunidad con préstamos grupales para cooperativas y asociaciones con condiciones preferenciales.",
-              },
-            ].map((service) => (
-              <div
-                key={service.title}
-                className="group rounded-xl border border-border bg-card p-8 transition-all hover:border-secondary/40 hover:shadow-lg"
-              >
-                <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-3">
-                  <service.icon className="h-6 w-6 text-primary" />
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg space-y-2 hover:border-blue-500/30 transition-colors">
+                    <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Historial Activo</p>
+                    <p class="text-3xl font-black text-slate-100">L. 2,500.00</p>
+                    <p class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-check-circle"></i> Préstamo Inicial</p>
                 </div>
-                <h3 className="font-display text-xl font-semibold text-card-foreground">
-                  {service.title}
+
+                <div class="bg-slate-900 border-2 border-blue-500/40 p-6 rounded-2xl shadow-xl space-y-2 hover:border-blue-500 transition-colors">
+                    <p class="text-xs text-blue-400 font-medium uppercase tracking-wider">Extensión Aprobada</p>
+                    <p class="text-3xl font-black text-blue-400">L. 2,000.00</p>
+                    <p class="text-xs text-amber-400 font-semibold"><i class="fa-solid fa-clock"></i> Depósito: 15/08/2026</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg space-y-2">
+                    <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Tasa Preferencial</p>
+                    <p class="text-3xl font-black text-slate-100">10% Mensual</p>
+                    <p class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-tags"></i> Tasa de Interés Fija</p>
+                </div>
+
+                <div class="bg-slate-900 border border-emerald-500/40 p-6 rounded-2xl shadow-lg space-y-2 hover:border-emerald-500 transition-colors">
+                    <p class="text-xs text-emerald-400 font-medium uppercase tracking-wider">Abono para el 31/08/2026</p>
+                    <p class="text-3xl font-black text-emerald-400">L. 200.00</p>
+                    <p class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-calendar-day"></i> Solo Interés — Opción 2</p>
+                </div>
+
+            </section>
+
+            <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl">
+                <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
+                    <i class="fa-solid fa-calendar-check text-blue-500"></i> Plan de Pago Confirmado
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {service.description}
-                </p>
-                <a
-                  href="#contacto"
-                  className="mt-6 inline-flex items-center text-sm font-semibold text-primary transition-colors group-hover:text-secondary"
-                >
-                  Más información <ChevronRight className="ml-1 h-4 w-4" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-300">
+                        <thead class="bg-slate-950 text-slate-500 uppercase text-xs">
+                            <tr>
+                                <th class="p-4">Concepto</th>
+                                <th class="p-4">Monto (HNL)</th>
+                                <th class="p-4">Fecha Acordada</th>
+                                <th class="p-4 text-center">Detalle / Modalidad</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800">
+                            <tr>
+                                <td class="p-4 font-semibold text-white">Desembolso de Extensión</td>
+                                <td class="p-4 font-black text-white text-base">L. 2,000.00</td>
+                                <td class="p-4 text-slate-400">15 de Agosto, 2026</td>
+                                <td class="p-4 text-center text-xs text-slate-500">Acreditación Programada</td>
+                            </tr>
+                            <tr class="bg-blue-950/20">
+                                <td class="p-4 font-semibold text-blue-300">Abono del Mes (Agosto)</td>
+                                <td class="p-4 font-black text-blue-400 text-base">L. 200.00</td>
+                                <td class="p-4 text-blue-300 font-medium">31 de Agosto, 2026</td>
+                                <td class="p-4 text-center">
+                                    <span class="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full text-xs font-bold">Opción 2 - Solo Interés</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold text-slate-400">Saldo de Capital para Septiembre</td>
+                                <td class="p-4 font-black text-slate-400 text-base">L. 2,000.00</td>
+                                <td class="p-4 text-slate-500">30 de Septiembre, 2026</td>
+                                <td class="p-4 text-center text-xs text-slate-400">Capital Mantenido</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
 
-      {/* Nosotros */}
-      <section id="nosotros" className="bg-primary py-24 text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary-foreground/70">
-                Sobre nosotros
-              </p>
-              <h2 className="font-display text-3xl font-bold sm:text-4xl md:text-5xl">
-                Construyendo el futuro financiero de Honduras
-              </h2>
-              <p className="mt-6 text-lg leading-relaxed text-primary-foreground/85">
-                Credi Honduras nació en 1998 con una misión clara: democratizar el acceso
-                al crédito y brindar oportunidades reales de crecimiento económico a las
-                familias hondureñas.
-              </p>
-              <p className="mt-4 text-lg leading-relaxed text-primary-foreground/85">
-                Desde entonces, hemos acompañado a más de 50,000 clientes en sus
-                proyectos de vida, desde el primer negocio familiar hasta la casa propia.
-              </p>
+        <footer class="text-center pt-6 pb-6 border-t border-slate-800 text-xs text-slate-500 space-y-1">
+            <p><strong>Credi Honduras</strong> — Atendido por Edwin López</p>
+            <p>Sistema Web Conectado a Base de Datos</p>
+        </footer>
 
-              <div className="mt-10 flex flex-wrap gap-8">
-                {[
-                  { label: "Misión", text: "Proveer soluciones financieras accesibles que transformen vidas y comunidades." },
-                  { label: "Visión", text: "Ser la institución financiera de referencia en Honduras para el desarrollo personal y empresarial." },
-                ].map((item) => (
-                  <div key={item.label} className="max-w-xs">
-                    <h4 className="font-display text-lg font-semibold">{item.label}</h4>
-                    <p className="mt-2 text-sm leading-relaxed text-primary-foreground/75">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
+    </div>
+
+    <div id="loginModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl relative space-y-6">
+            
+            <button onclick="toggleModal(false)" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center space-y-2">
+                <div class="bg-blue-600/10 border border-blue-500/20 w-12 h-12 rounded-xl flex items-center justify-center mx-auto text-blue-400 text-xl">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Iniciar Sesión</h3>
+                <p class="text-xs text-slate-400">Ingrese sus credenciales de Credi Honduras</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: "Transparencia", desc: "Sin letra pequeña. Condiciones claras desde el primer día." },
-                { label: "Compromiso", desc: "Tu éxito es nuestro éxito. Te acompañamos en cada paso." },
-                { label: "Innovación", desc: "Tecnología de punta para procesos ágiles y seguros." },
-                { label: "Cercanía", desc: "Trato humano y personalizado, como lo haría un amigo." },
-              ].map((val) => (
-                <div
-                  key={val.label}
-                  className="rounded-xl border border-primary-foreground/10 bg-primary-foreground/5 p-6 backdrop-blur-sm"
-                >
-                  <h4 className="font-display text-lg font-semibold">{val.label}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">
-                    {val.desc}
-                  </p>
+            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Usuario o Identificación</label>
+                    <input type="text" id="userInput" required placeholder="Ej. patricia_funes" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
                 </div>
-              ))}
-            </div>
-          </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Contraseña</label>
+                    <input type="password" id="passwordInput" required placeholder="••••••••" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-sm transition-all shadow-lg shadow-blue-600/20">
+                    Ingresar al Sistema
+                </button>
+            </form>
         </div>
-      </section>
+    </div>
 
-      {/* Testimonial */}
-      <section className="bg-background py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="font-display text-3xl font-bold leading-snug text-foreground sm:text-4xl md:text-5xl">
-            &ldquo;Gracias a Credi Honduras pude expandir mi negocio y ahora empleo a
-            cinco personas de mi comunidad.&rdquo;
-          </p>
-          <div className="mt-8">
-            <p className="font-semibold text-foreground">María Elena Gutiérrez</p>
-            <p className="text-sm text-muted-foreground">Emprendedora · San Pedro Sula</p>
-          </div>
-        </div>
-      </section>
+    <script>
+        function toggleModal(show) {
+            const modal = document.getElementById('loginModal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
 
-      {/* CTA / Contacto */}
-      <section id="contacto" className="bg-secondary/10 py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-secondary">
-                Contáctanos
-              </p>
-              <h2 className="font-display text-3xl font-bold text-foreground sm:text-4xl">
-                ¿Listo para dar el siguiente paso?
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Nuestro equipo está listo para ayudarte a encontrar la solución financiera
-                perfecta para ti. Escríbenos o visita tu sucursal más cercana.
-              </p>
+        function handleLogin(event) {
+            event.preventDefault();
+            const user = document.getElementById('userInput').value;
+            const pass = document.getElementById('passwordInput').value;
 
-              <div className="mt-10 space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/10 p-3">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Teléfono</p>
-                    <p className="text-muted-foreground">+504 2250-8888</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/10 p-3">
-                    <Mail className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Correo</p>
-                    <p className="text-muted-foreground">info@credihonduras.hn</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/10 p-3">
-                    <MapPin className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Oficina principal</p>
-                    <p className="text-muted-foreground">
-                      Blvd. Morazán, Edificio Financiero, Tegucigalpa, Honduras
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            // Aquí se conecta con las funciones de tu base de datos en js/ o core/
+            console.log("Intentando iniciar sesión con:", user);
+            alert("Iniciando sesión para: " + user);
+            toggleModal(false);
+        }
+    </script>
 
-            <form className="rounded-2xl border border-border bg-card p-8 shadow-sm">
-              <h3 className="font-display text-xl font-semibold text-card-foreground">
-                Solicita información
-              </h3>
-              <div className="mt-6 grid gap-4">
-                <div className="grid gap-2">
-                  <label htmlFor="nombre" className="text-sm font-medium text-foreground">
-                    Nombre completo
-                  </label>
-                  <input
-                    id="nombre"
-                    type="text"
-                    className="rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-ring focus:ring-1 focus:ring-ring"
-                    placeholder="Tu nombre"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Correo electrónico
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    className="rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-ring focus:ring-1 focus:ring-ring"
-                    placeholder="tu@email.com"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="telefono" className="text-sm font-medium text-foreground">
-                    Teléfono
-                  </label>
-                  <input
-                    id="telefono"
-                    type="tel"
-                    className="rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-ring focus:ring-1 focus:ring-ring"
-                    placeholder="+504 0000-0000"
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="interes" className="text-sm font-medium text-foreground">
-                    Producto de interés
-                  </label>
-                  <select
-                    id="interes"
-                    className="rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-ring focus:ring-1 focus:ring-ring"
-                  >
-                    <option>Préstamo Personal</option>
-                    <option>Microcrédito</option>
-                    <option>Cuenta de Ahorro</option>
-                    <option>Crédito Hipotecario</option>
-                    <option>Seguros</option>
-                    <option>Otro</option>
-                  </select>
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="mensaje" classNa
+</body>
+</html>
