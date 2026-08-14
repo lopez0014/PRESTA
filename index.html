@@ -1,31 +1,21 @@
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credi Honduras — Tu Socio Financiero de Confianza</title>
-    
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.43.0/dist/umd/supabase.js"></script>
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  Wallet,
+  PiggyBank,
+  ShieldCheck,
+  TrendingUp,
+  Users,
+  Landmark,
+  Phone,
+  MapPin,
+  Mail,
+  ChevronRight,
+  Menu,
+  X,
+} from "lucide-react";
 
 import heroImg from "../assets/hero-credi.jpg";
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .box {
-            animation: fadeIn 0.3s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between">
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -90,14 +80,6 @@ function Index() {
             )}
           </button>
         </div>
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 border-b border-slate-200 backdrop-blur-md">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <div class="flex items-center gap-2 cursor-pointer select-none" onclick="irAInicioWeb()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-900"><line x1="3" y1="22" x2="21" y2="22"></line><line x1="6" y1="18" x2="6" y2="11"></line><line x1="10" y1="18" x2="10" y2="11"></line><line x1="14" y1="18" x2="14" y2="11"></line><line x1="18" y1="18" x2="18" y2="11"></line><path d="M12 2L2 7h20L12 2z"></path></svg>
-                <span onclick="detectarCuatroClicks()" class="text-xl font-bold tracking-tight text-slate-900">
-                    Credi Honduras
-                </span>
-            </div>
 
         {mobileOpen && (
           <div className="border-t border-border bg-background px-6 py-4 md:hidden">
@@ -124,11 +106,6 @@ function Index() {
               >
                 Solicitar préstamo
               </a>
-            <nav class="hidden items-center gap-8 md:flex">
-                <a href="#" onclick="irAInicioWeb()" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Inicio</a>
-                <a href="#servicios" onclick="irAInicioWeb()" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Servicios</a>
-                <a href="#nosotros" onclick="irAInicioWeb()" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Nosotros</a>
-                <a href="#contacto" onclick="irAInicioWeb()" class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">Contacto</a>
             </nav>
           </div>
         )}
@@ -145,11 +122,6 @@ function Index() {
           />
           <div className="absolute inset-0 bg-primary/70" />
         </div>
-            <div class="hidden md:block">
-                <button onclick="activarFlujoApp('register')" class="inline-flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-800">
-                    Solicitar préstamo
-                </button>
-            </div>
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary-foreground/80">
@@ -180,12 +152,8 @@ function Index() {
               Contáctanos
             </a>
           </div>
-            <button class="md:hidden text-slate-900" onclick="activarFlujoApp('login')">
-                <span class="text-sm font-semibold border border-slate-300 rounded px-3 py-1.5">Ingresar</span>
-            </button>
         </div>
       </section>
-    </header>
 
       {/* Stats */}
       <section className="bg-primary py-16">
@@ -201,26 +169,6 @@ function Index() {
                 {stat.value}
               </p>
               <p className="mt-2 text-sm text-primary-foreground/80">{stat.label}</p>
-    <main id="web-landing-section" class="pt-20 box">
-        <section class="relative bg-slate-900 text-white py-24 px-6 text-center overflow-hidden">
-            <div class="relative z-10 mx-auto max-w-4xl">
-                <p class="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400">
-                    Innovación Financiera Digital · Honduras
-                </p>
-                <h1 class="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                    Tu socio financiero<br />de confianza
-                </h1>
-                <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-                    En Credi Honduras creemos que el acceso al crédito debe ser inmediato y sin trabas. Ofrecemos soluciones financieras accesibles, transparentes y diseñadas para impulsar tus proyectos de forma 100% digital.
-                </p>
-                <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                    <button onclick="activarFlujoApp('register')" class="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-semibold text-slate-900 transition-colors hover:bg-slate-100 w-full sm:w-auto">
-                        Conoce nuestros servicios
-                    </button>
-                    <button onclick="activarFlujoApp('login')" class="inline-flex items-center justify-center rounded-md border-2 border-white/30 px-6 py-3 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 w-full sm:w-auto">
-                        Iniciar Sesión
-                    </button>
-                </div>
             </div>
           ))}
         </div>
@@ -241,7 +189,6 @@ function Index() {
               tasas competitivas y un trato cercano.
             </p>
           </div>
-        </section>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -288,11 +235,6 @@ function Index() {
               >
                 <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-3">
                   <service.icon className="h-6 w-6 text-primary" />
-        <section class="bg-slate-900 border-t border-slate-800 py-16">
-            <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 text-center sm:grid-cols-3">
-                <div>
-                    <p class="text-3xl font-bold text-white sm:text-4xl">Desde 2025</p>
-                    <p class="mt-2 text-sm text-slate-400">Operando digitalmente</p>
                 </div>
                 <h3 className="font-display text-xl font-semibold text-card-foreground">
                   {service.title}
@@ -311,16 +253,6 @@ function Index() {
           </div>
         </div>
       </section>
-                <div>
-                    <p class="text-3xl font-bold text-white sm:text-4xl">40+</p>
-                    <p class="mt-2 text-sm text-slate-400">Casos de éxito aprobados</p>
-                </div>
-                <div>
-                    <p class="text-3xl font-bold text-white sm:text-4xl">100%</p>
-                    <p class="mt-2 text-sm text-slate-400">Proceso en línea por WhatsApp</p>
-                </div>
-            </div>
-        </section>
 
       {/* Nosotros */}
       <section id="nosotros" className="bg-primary py-24 text-primary-foreground">
@@ -342,12 +274,6 @@ function Index() {
                 Desde entonces, hemos acompañado a más de 50,000 clientes en sus
                 proyectos de vida, desde el primer negocio familiar hasta la casa propia.
               </p>
-        <section id="servicios" class="py-24 max-w-7xl mx-auto px-6">
-            <div class="mb-16 text-center">
-                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-slate-500">Nuestros servicios</p>
-                <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl md:text-5xl">Soluciones para cada necesidad</h2>
-                <p class="mx-auto mt-4 max-w-2xl text-slate-600">Diseñamos productos financieros pensados en ti, con procesos ágiles, tasas competitivas y un trato directo mediante plataformas digitales.</p>
-            </div>
 
               <div className="mt-10 flex flex-wrap gap-8">
                 {[
@@ -362,24 +288,7 @@ function Index() {
                   </div>
                 ))}
               </div>
-            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="rounded-xl border border-slate-200 bg-white p-8 transition-all hover:shadow-lg">
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Préstamos Personales</h3>
-                    <p class="text-sm leading-relaxed text-slate-600">Obtén liquidez inmediata para cualquier proyecto o necesidad. Aprobación rápida y planes de pago flexibles.</p>
-                    <button onclick="activarFlujoApp('register')" class="mt-6 text-sm font-semibold text-slate-900 hover:underline">Más información &rarr;</button>
-                </div>
-                <div class="rounded-xl border border-slate-200 bg-white p-8 transition-all hover:shadow-lg">
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Cuentas de Ahorro</h3>
-                    <p class="text-sm leading-relaxed text-slate-600">Visualiza tu crecimiento financiero con opciones estructuradas competitivas y un control digital riguroso.</p>
-                    <button onclick="activarFlujoApp('register')" class="mt-6 text-sm font-semibold text-slate-900 hover:underline">Más información &rarr;</button>
-                </div>
-                <div class="rounded-xl border border-slate-200 bg-white p-8 transition-all hover:shadow-lg">
-                    <h3 class="text-xl font-semibold text-slate-900 mb-3">Microcréditos</h3>
-                    <p class="text-sm leading-relaxed text-slate-600">Impulsa tu negocio o emprendimiento con microcréditos accesibles diseñados para la economía local hondureña.</p>
-                    <button onclick="activarFlujoApp('register')" class="mt-6 text-sm font-semibold text-slate-900 hover:underline">Más información &rarr;</button>
-                </div>
             </div>
-        </section>
 
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -396,30 +305,12 @@ function Index() {
                   <p className="mt-2 text-sm leading-relaxed text-primary-foreground/70">
                     {val.desc}
                   </p>
-        <section id="nosotros" class="bg-slate-900 py-24 text-white px-6">
-            <div class="max-w-7xl mx-auto grid items-center gap-16 lg:grid-cols-2">
-                <div>
-                    <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-slate-400">Sobre nosotros</p>
-                    <h2 class="text-3xl font-bold sm:text-4xl md:text-5xl">Construyendo el futuro financiero de Honduras</h2>
-                    <p class="mt-6 text-lg leading-relaxed text-slate-300">Credi Honduras nació con una misión clara: digitalizar y democratizar el acceso al crédito, brindando oportunidades reales de crecimiento económico a las familias sin necesidad de trámites físicos engorrosos.</p>
-                    <p class="mt-4 text-lg leading-relaxed text-slate-300">Desde nuestro lanzamiento, hemos estructurado con éxito más de 40 casos prácticos de financiamiento, apoyando activamente a emprendedores locales en su consolidación financiera.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                        <h4 class="text-lg font-semibold mb-2">Transparencia</h4>
-                        <p class="text-sm text-slate-400">Sin letra pequeña ni cargos ocultos. Todo claro desde el primer instante.</p>
-                    </div>
-                    <div class="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                        <h4 class="text-lg font-semibold mb-2">Innovación</h4>
-                        <p class="text-sm text-slate-400">Desarrollo tecnológico avanzado para asegurar transferencias y datos protegidos.</p>
-                    </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
-        </section>
 
       {/* Testimonial */}
       <section className="bg-background py-24">
@@ -434,34 +325,6 @@ function Index() {
           </div>
         </div>
       </section>
-        <section id="contacto" class="py-24 max-w-7xl mx-auto px-6">
-            <div class="grid items-center gap-16 lg:grid-cols-2">
-                <div>
-                    <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-slate-500">Contáctanos</p>
-                    <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl">¿Listo para dar el siguiente paso?</h2>
-                    <p class="mt-4 text-lg text-slate-600">Nuestro equipo digital está listo para ayudarte a encontrar la solución financiera perfecta. Escríbenos directamente a través de nuestros canales oficiales autorizados o solicita tu crédito en el formulario en línea.</p>
-                    <div class="mt-8 space-y-4">
-                        <p class="text-sm text-slate-600"><strong>Correo Electrónico:</strong> lopez@credehonduras.com</p>
-                        <p class="text-sm text-slate-600"><strong>Soporte Directo:</strong> +512 750-8621</p>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                    <h3 class="text-xl font-bold mb-4">Plataforma Digital Express</h3>
-                    <p class="text-sm text-slate-600 mb-6">Para agilizar la entrega del capital, no manejamos formularios de contacto tradicionales de correo electrónico. Todo nuestro ecosistema opera bajo perfiles VIP automatizados.</p>
-                    <button onclick="activarFlujoApp('register')" class="w-full bg-slate-900 text-white font-semibold py-3 rounded-md hover:bg-slate-800 transition-colors">Abrir Formulario de Solicitud VIP &rarr;</button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <main id="main-container" class="pt-28 pb-12 px-4 max-w-[450px] w-full mx-auto hidden box">
-        <div class="bg-white border border-slate-200 shadow-xl rounded-xl p-8">
-            <nav id="app-nav" style="display: none;" class="flex justify-between gap-2 mb-6">
-                <button onclick="mostrarSeccion('section-loan')" class="flex-1 bg-white border border-slate-300 text-slate-700 py-2 rounded text-xs font-medium hover:bg-slate-50">Solicitar</button>
-                <button onclick="mostrarSeccion('section-my-profile')" class="flex-1 bg-white border border-slate-300 text-slate-700 py-2 rounded text-xs font-medium hover:bg-slate-50">Mi Perfil</button>
-                <button onclick="mostrarSeccion('section-about')" class="flex-1 bg-white border border-slate-300 text-slate-700 py-2 rounded text-xs font-medium hover:bg-slate-50">Nosotros</button>
-                <button onclick="cerrarSesion()" class="flex-1 bg-white border border-red-200 text-red-600 py-2 rounded text-xs font-medium hover:bg-red-50">Salir</button>
-            </nav>
 
       {/* CTA / Contacto */}
       <section id="contacto" className="bg-secondary/10 py-24">
@@ -478,16 +341,6 @@ function Index() {
                 Nuestro equipo está listo para ayudarte a encontrar la solución financiera
                 perfecta para ti. Escríbenos o visita tu sucursal más cercana.
               </p>
-            <nav id="admin-nav" style="display: none;" class="mb-6">
-                <span class="admin-badge block bg-blue-50 border border-blue-200 text-blue-800 font-bold text-center text-xs py-2 rounded mb-3">PANEL ADMINISTRATIVO</span>
-                <button onclick="cerrarSesion()" class="w-full bg-white border border-slate-300 text-slate-700 py-2 rounded text-xs font-medium hover:bg-slate-50">Cerrar Panel</button>
-            </nav>
-
-            <div class="text-center mb-6">
-                <h2 class="text-2xl font-bold text-slate-900">Credi Honduras</h2>
-                <p class="text-xs text-slate-500 mt-1">Plataforma Digital de Crédito VIP</p>
-            </div>
-            <div class="h-px bg-slate-200 mb-6"></div>
 
               <div className="mt-10 space-y-6">
                 <div className="flex items-start gap-4">
@@ -498,11 +351,6 @@ function Index() {
                     <p className="font-semibold text-foreground">Teléfono</p>
                     <p className="text-muted-foreground">+504 2250-8888</p>
                   </div>
-            <div id="section-register" class="box" style="display: none;">
-                <h3 class="text-base font-semibold mb-4 text-slate-900">Crear Perfil VIP</h3>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo</label>
-                    <input type="text" id="p-nombre" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Nombre y Apellidos">
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="rounded-lg bg-primary/10 p-3">
@@ -512,9 +360,6 @@ function Index() {
                     <p className="font-semibold text-foreground">Correo</p>
                     <p className="text-muted-foreground">info@credihonduras.hn</p>
                   </div>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Número de Teléfono</label>
-                    <input type="tel" id="p-telefono" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Número de Celular">
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="rounded-lg bg-primary/10 p-3">
@@ -526,13 +371,8 @@ function Index() {
                       Blvd. Morazán, Edificio Financiero, Tegucigalpa, Honduras
                     </p>
                   </div>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Cree su Contraseña de Acceso</label>
-                    <input type="password" id="p-password" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Contraseña segura">
                 </div>
               </div>
-                <button onclick="guardarPerfil()" class="w-full bg-slate-900 text-white font-semibold py-2.5 rounded text-sm hover:bg-slate-800">Crear Perfil VIP</button>
-                <p class="text-center text-xs text-slate-500 mt-4">¿Ya tienes una cuenta? <a href="#" onclick="conmutarAuth('login')" class="text-slate-900 font-bold underline">Inicia Sesión aquí</a></p>
             </div>
 
             <form className="rounded-2xl border border-border bg-card p-8 shadow-sm">
@@ -550,11 +390,6 @@ function Index() {
                     className="rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-ring focus:ring-1 focus:ring-ring"
                     placeholder="Tu nombre"
                   />
-            <div id="section-login" class="box" style="display: none;">
-                <h3 class="text-base font-semibold mb-4 text-slate-900">Iniciar Sesión</h3>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Número de Teléfono</label>
-                    <input type="tel" id="login-telefono" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Introduce tu teléfono registrado">
                 </div>
                 <div className="grid gap-2">
                   <label htmlFor="email" className="text-sm font-medium text-foreground">
@@ -566,9 +401,6 @@ function Index() {
                     className="rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-ring focus:ring-1 focus:ring-ring"
                     placeholder="tu@email.com"
                   />
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Contraseña</label>
-                    <input type="password" id="login-password" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Introduce tu contraseña">
                 </div>
                 <div className="grid gap-2">
                   <label htmlFor="telefono" className="text-sm font-medium text-foreground">
@@ -580,30 +412,6 @@ function Index() {
                     className="rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-ring focus:ring-1 focus:ring-ring"
                     placeholder="+504 0000-0000"
                   />
-                <button onclick="iniciarSesion()" class="w-full bg-slate-900 text-white font-semibold py-2.5 rounded text-sm hover:bg-slate-800">Iniciar Sesión</button>
-                <p class="text-center text-xs text-slate-500 mt-4">¿No tienes cuenta? <a href="#" onclick="conmutarAuth('register')" class="text-slate-900 font-bold underline">Regístrate aquí</a></p>
-            </div>
-
-            <div id="section-loan" class="box" style="display: none;">
-                <h3 class="text-base font-semibold mb-2 text-slate-900">Solicitar Préstamo</h3>
-                <p class="text-sm text-slate-600 mb-4">Bienvenido, <span class="user-name-span font-bold text-slate-900"></span></p>
-                
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">¿Dejarás alguna garantía / empeño?</label>
-                    <select id="l-garantia" onchange="ajustarLimiteMonto()" class="w-full border border-slate-300 rounded p-2.5 text-sm bg-white outline-none focus:border-slate-900">
-                        <option value="ninguna">Sin Garantía (Límite máximo: L. 2,000)</option>
-                        <option value="carro">Título de Carro (Límite máximo: L. 10,000)</option>
-                        <option value="moto">Título de Moto (Límite máximo: L. 10,000)</option>
-                        <option value="otro">Otro Empeño</option>
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Monto Solicitado (Lempiras)</label>
-                    <input type="number" id="l-monto" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Monto Máximo: L. 2,000">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">DNI</label>
-                    <input type="text" id="l-dni" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="0501-1995-12345">
                 </div>
                 <div className="grid gap-2">
                   <label htmlFor="interes" className="text-sm font-medium text-foreground">
@@ -620,66 +428,6 @@ function Index() {
                     <option>Seguros</option>
                     <option>Otro</option>
                   </select>
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Banco Destino</label>
-                    <input type="text" id="l-banco" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Ej: Ficohsa, Atlántida (O vacío si es Efectivo)">
                 </div>
                 <div className="grid gap-2">
                   <label htmlFor="mensaje" classNa
-                <div class="mb-4">
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">Cuenta Bancaria</label>
-                    <input type="text" id="l-cuenta" class="w-full border border-slate-300 rounded p-2.5 text-sm outline-none focus:border-slate-900" placeholder="Número de cuenta bancaria">
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-3 rounded text-xs text-slate-500 mb-4 leading-relaxed">
-                    Nota: Al darle al botón se guardará tu solicitud y se abrirá WhatsApp de inmediato para validar tus datos de identidad corporativa.
-                </div>
-                <button onclick="solicitarPrestamo()" class="w-full bg-emerald-600 text-white font-semibold py-3 rounded text-sm hover:bg-emerald-500">Solicitar y Validar por WhatsApp</button>
-            </div>
-
-            <div id="section-my-profile" class="box" style="display: none;">
-                <h3 class="text-base font-semibold mb-4 text-slate-900">Mi Perfil Financiero</h3>
-                <div class="bg-slate-50 border border-slate-200 p-3 rounded text-xs text-slate-700 mb-6">
-                    <p class="mb-1"><strong>Cliente:</strong> <span class="user-name-span"></span></p>
-                    <p><strong>Teléfono:</strong> <span id="user-phone-span"></span></p>
-                </div>
-                <h3 class="text-sm font-bold text-slate-900 mb-3">Tus Solicitudes y Saldos</h3>
-                <div id="loans-history-container"></div>
-            </div>
-
-            <div id="section-about" class="box" style="display: none;">
-                <h3 class="text-base font-semibold mb-3 text-slate-900">Sobre Nosotros</h3>
-                <p class="text-xs text-slate-600 leading-relaxed mb-2">Somos Credi Honduras, una plataforma financiera tecnológica diseñada para brindar soluciones contables de crédito rápidas, seguras y sin trabas burocráticas en todo el país.</p>
-            </div>
-
-            <div id="section-admin-panel" class="box" style="display: none;">
-                <h3 class="text-base font-semibold mb-4 text-slate-900">Solicitudes Pendientes</h3>
-                <div id="admin-loans-container"></div>
-            </div>
-
-            <div id="status-msg" class="mt-4 text-center text-xs font-medium text-slate-500"></div>
-        </div>
-    </main>
-
-    <footer class="w-full bg-white border-t border-slate-200 py-6 px-4 text-center text-xs text-slate-500">
-        <p>&copy; 2026 Credi Honduras. Todos los derechos reservados.</p>
-        <p class="mt-1 text-slate-400">Esta plataforma web y su infraestructura tecnológica son propiedad de <span class="font-semibold text-slate-600">Aura Software</span>.</p>
-    </footer>
-
-    <script>
-        function irAInicioWeb() {
-            document.getElementById('main-container').classList.add('hidden');
-            document.getElementById('web-landing-section').classList.remove('hidden');
-        }
-
-        function activarFlujoApp(modo) {
-            document.getElementById('web-landing-section').classList.add('hidden');
-            document.getElementById('main-container').classList.remove('hidden');
-            conmutarAuth(modo);
-        }
-    </script>
-
-    <script src="core/network/supabase.js"></script>
-    <script src="core/crypto/aes.js"></script>
-    <script src="js/app.js"></script>
-</body>
-</html>
