@@ -3,149 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credi Honduras - Portal Corporativo VIP</title>
+    <title>Credi Honduras - Portal Corporativo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen relative">
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
 
-    <div class="max-w-7xl mx-auto p-4 md:p-8 space-y-10">
-        
-        <header class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center shadow-2xl gap-4">
-            <div class="flex items-center space-x-4">
-                <div class="bg-blue-600 w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-lg">
-                    <i class="fa-solid fa-handshake-angle text-3xl md:text-4xl text-white"></i>
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-900 text-white w-12 h-12 rounded-lg flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-building-columns text-2xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-black text-white tracking-tighter">Credi Honduras</h1>
-                    <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">Plataforma Financiera VIP</p>
+                    <span class="text-xl font-bold text-blue-950 tracking-tight block">Credi Honduras</span>
+                    <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-widest block">Servicios Financieros</span>
                 </div>
             </div>
 
-            <div class="flex items-center gap-4">
-                <div class="hidden sm:flex bg-emerald-900/40 border border-emerald-500/30 px-4 py-2 rounded-full items-center space-x-2 text-emerald-400 text-xs font-semibold">
-                    <span class="relative flex h-2.5 w-2.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                    </span>
-                    <span>Sistema Conectado</span>
-                </div>
-
-                <button onclick="toggleModal(true)" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-5 py-2.5 rounded-xl text-sm flex items-center gap-2 shadow-lg hover:shadow-blue-500/20 transition-all">
-                    <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión
+            <div>
+                <button onclick="toggleModal(true)" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-lg text-sm flex items-center gap-2 shadow-sm transition-all">
+                    <i class="fa-solid fa-user-lock text-xs"></i> Iniciar Sesión
                 </button>
             </div>
-        </header>
 
-        <main class="space-y-8">
-            <h2 class="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
-                <i class="fa-solid fa-id-card text-blue-500"></i> Resumen de Cuenta VIP
-            </h2>
+        </div>
+    </header>
 
-            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg space-y-2 hover:border-blue-500/30 transition-colors">
-                    <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Historial Activo</p>
-                    <p class="text-3xl font-black text-slate-100">L. 2,500.00</p>
-                    <p class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-check-circle"></i> Préstamo Inicial</p>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
+        
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 sm:p-12 shadow-sm mb-10 text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-50 text-blue-900 rounded-full mb-4">
+                <i class="fa-solid fa-shield-halved text-2xl"></i>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-3">
+                Plataforma Digital de Gestión de Créditos
+            </h1>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                Bienvenido al portal institucional de Credi Honduras. Inicie sesión para acceder a su perfil privado, revisar el estado de sus solicitudes, historial y fechas de pago.
+            </p>
+            <button onclick="toggleModal(true)" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-lg text-sm inline-flex items-center gap-2 shadow-sm transition-all">
+                Ingresar a mi Cuenta <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm space-y-2">
+                <div class="text-blue-900 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-lock"></i>
                 </div>
+                <h2 class="font-bold text-slate-900 text-base">Acceso Seguro</h2>
+                <p class="text-slate-500 text-xs leading-relaxed">Consulte el estado de sus transacciones y saldo de forma privada mediante su usuario registrado.</p>
+            </div>
 
-                <div class="bg-slate-900 border-2 border-blue-500/40 p-6 rounded-2xl shadow-xl space-y-2 hover:border-blue-500 transition-colors">
-                    <p class="text-xs text-blue-400 font-medium uppercase tracking-wider">Extensión Aprobada</p>
-                    <p class="text-3xl font-black text-blue-400">L. 2,000.00</p>
-                    <p class="text-xs text-amber-400 font-semibold"><i class="fa-solid fa-clock"></i> Depósito: 15/08/2026</p>
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm space-y-2">
+                <div class="text-blue-900 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
                 </div>
+                <h2 class="font-bold text-slate-900 text-base">Gestión Transparente</h2>
+                <p class="text-slate-500 text-xs leading-relaxed">Visualización clara de planes de pago, abonos a capital e intereses sin cargos ocultos.</p>
+            </div>
 
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-lg space-y-2">
-                    <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Tasa Preferencial</p>
-                    <p class="text-3xl font-black text-slate-100">10% Mensual</p>
-                    <p class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-tags"></i> Tasa de Interés Fija</p>
+            <div class="bg-white border border-slate-200 p-6 rounded-xl shadow-sm space-y-2">
+                <div class="text-blue-900 text-xl font-bold mb-2">
+                    <i class="fa-solid fa-headset"></i>
                 </div>
+                <h2 class="font-bold text-slate-900 text-base">Atención Personalizada</h2>
+                <p class="text-slate-500 text-xs leading-relaxed">Soporte y atención directa para la renovación o liquidación de sus operaciones fin de mes.</p>
+            </div>
+        </div>
 
-                <div class="bg-slate-900 border border-emerald-500/40 p-6 rounded-2xl shadow-lg space-y-2 hover:border-emerald-500 transition-colors">
-                    <p class="text-xs text-emerald-400 font-medium uppercase tracking-wider">Abono para el 31/08/2026</p>
-                    <p class="text-3xl font-black text-emerald-400">L. 200.00</p>
-                    <p class="text-xs text-slate-400 font-semibold"><i class="fa-solid fa-calendar-day"></i> Solo Interés — Opción 2</p>
-                </div>
+    </main>
 
-            </section>
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 w-full">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-medium text-slate-700">Credi Honduras — Gestión Financiera Directa</p>
+            <p class="text-slate-400 mt-1">© 2026 Todos los derechos reservados. Acceso exclusivo para usuarios autorizados.</p>
+        </div>
+    </footer>
 
-            <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl">
-                <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-                    <i class="fa-solid fa-calendar-check text-blue-500"></i> Plan de Pago Confirmado
-                </h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm text-slate-300">
-                        <thead class="bg-slate-950 text-slate-500 uppercase text-xs">
-                            <tr>
-                                <th class="p-4">Concepto</th>
-                                <th class="p-4">Monto (HNL)</th>
-                                <th class="p-4">Fecha Acordada</th>
-                                <th class="p-4 text-center">Detalle / Modalidad</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800">
-                            <tr>
-                                <td class="p-4 font-semibold text-white">Desembolso de Extensión</td>
-                                <td class="p-4 font-black text-white text-base">L. 2,000.00</td>
-                                <td class="p-4 text-slate-400">15 de Agosto, 2026</td>
-                                <td class="p-4 text-center text-xs text-slate-500">Acreditación Programada</td>
-                            </tr>
-                            <tr class="bg-blue-950/20">
-                                <td class="p-4 font-semibold text-blue-300">Abono del Mes (Agosto)</td>
-                                <td class="p-4 font-black text-blue-400 text-base">L. 200.00</td>
-                                <td class="p-4 text-blue-300 font-medium">31 de Agosto, 2026</td>
-                                <td class="p-4 text-center">
-                                    <span class="bg-blue-500/10 text-blue-300 px-3 py-1 rounded-full text-xs font-bold">Opción 2 - Solo Interés</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-semibold text-slate-400">Saldo de Capital para Septiembre</td>
-                                <td class="p-4 font-black text-slate-400 text-base">L. 2,000.00</td>
-                                <td class="p-4 text-slate-500">30 de Septiembre, 2026</td>
-                                <td class="p-4 text-center text-xs text-slate-400">Capital Mantenido</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </main>
-
-        <footer class="text-center pt-6 pb-6 border-t border-slate-800 text-xs text-slate-500 space-y-1">
-            <p><strong>Credi Honduras</strong> — Atendido por Edwin López</p>
-            <p>Sistema Web Conectado a Base de Datos</p>
-        </footer>
-
-    </div>
-
-    <div id="loginModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-2xl p-6 md:p-8 shadow-2xl relative space-y-6">
+    <div id="loginModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white border border-slate-200 w-full max-w-md rounded-2xl p-6 sm:p-8 shadow-xl relative space-y-6">
             
-            <button onclick="toggleModal(false)" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+            <button onclick="toggleModal(false)" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div class="text-center space-y-2">
-                <div class="bg-blue-600/10 border border-blue-500/20 w-12 h-12 rounded-xl flex items-center justify-center mx-auto text-blue-400 text-xl">
-                    <i class="fa-solid fa-user-lock"></i>
+                <div class="bg-blue-50 text-blue-900 w-12 h-12 rounded-xl flex items-center justify-center mx-auto text-xl">
+                    <i class="fa-solid fa-user-check"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white">Iniciar Sesión</h3>
-                <p class="text-xs text-slate-400">Ingrese sus credenciales de Credi Honduras</p>
+                <h3 class="text-xl font-bold text-slate-900">Iniciar Sesión</h3>
+                <p class="text-xs text-slate-500">Ingrese su usuario y contraseña para continuar</p>
             </div>
 
             <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Usuario o Identificación</label>
-                    <input type="text" id="userInput" required placeholder="Ej. patricia_funes" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+                    <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Usuario</label>
+                    <input type="text" id="userInput" required placeholder="Ingrese su usuario" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-1">Contraseña</label>
-                    <input type="password" id="passwordInput" required placeholder="••••••••" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+                    <label class="block text-xs font-semibold uppercase text-slate-600 mb-1">Contraseña</label>
+                    <input type="password" id="passwordInput" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900 transition-all">
                 </div>
 
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-sm transition-all shadow-lg shadow-blue-600/20">
-                    Ingresar al Sistema
+                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 rounded-lg text-sm transition-all shadow-sm">
+                    Ingresar
                 </button>
             </form>
         </div>
@@ -164,11 +129,8 @@
         function handleLogin(event) {
             event.preventDefault();
             const user = document.getElementById('userInput').value;
-            const pass = document.getElementById('passwordInput').value;
-
-            // Aquí se conecta con las funciones de tu base de datos en js/ o core/
-            console.log("Intentando iniciar sesión con:", user);
-            alert("Iniciando sesión para: " + user);
+            // Conecta con las funciones de autenticación de tu carpeta js/ o core/
+            console.log("Iniciando sesión con:", user);
             toggleModal(false);
         }
     </script>
